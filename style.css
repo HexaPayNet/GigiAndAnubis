@@ -1,0 +1,275 @@
+:root{
+  --plum:#430741;--deep:#1D031B;--gold:#D6A93A;--gold2:#F0CE72;
+  --black:#050505;--anubis:#E1AB2B;--earth:#54463D;--text:#f7f1e9;
+  --serif:"Cormorant Garamond",Georgia,serif;--sans:"Inter",Arial,sans-serif;
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--deep);color:var(--text);font-family:var(--sans);font-weight:300;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-3;background:radial-gradient(circle at 15% 20%,#6e0962 0,transparent 32%),radial-gradient(circle at 90% 65%,#2d062a 0,transparent 35%),var(--deep);transition:background .7s}
+body.anubis-mode:before{background:radial-gradient(circle at 15% 20%,#352a20 0,transparent 30%),radial-gradient(circle at 85% 45%,#16110d 0,transparent 35%),#050505}
+.noise{position:fixed;inset:0;pointer-events:none;z-index:20;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+a{text-decoration:none;color:inherit}.glass{background:linear-gradient(135deg,rgba(255,255,255,.09),rgba(255,255,255,.025));border:1px solid rgba(255,220,140,.24);box-shadow:0 25px 80px rgba(0,0,0,.3),inset 0 1px rgba(255,255,255,.12);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+.site-header{position:fixed;top:18px;left:5%;right:5%;z-index:30;border-radius:60px;padding:10px 14px 10px 24px;display:flex;align-items:center;justify-content:space-between}
+
+.logo-emblem{
+  position:relative;
+  width:118px;
+  height:118px;
+  margin:0 auto 26px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.logo-emblem .ring{
+  position:absolute;
+  inset:0;
+  border-radius:50%;
+  border:1px solid rgba(240,206,114,0.4); /* outer ring color */
+}
+
+.logo-emblem .ring.two{
+  inset:15px;
+  border-color:rgba(240,206,114,0.22); /* inner ring color */
+}
+
+.logo-emblem .ring.one{
+  animation:emblemspin 50s linear infinite;
+}
+
+.logo-emblem .ring.two{
+  animation:emblemspin 70s linear infinite reverse;
+}
+
+.logo-emblem .mark{
+  position:relative;
+  z-index:2;
+  font:500 46px Georgia, serif; /* swap for your display font */
+  color:#f0ce72;
+  line-height:1;
+}
+
+/* variant example: give the second logo its own ring/mark color */
+.anubis-emblem .ring{ border-color:rgba(225,171,43,0.45); }
+.anubis-emblem .ring.two{ border-color:rgba(225,171,43,0.25); }
+.anubis-emblem .mark{ color:#E1AB2B; font-size:50px; }
+
+@keyframes emblemspin{
+  to{ transform:rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .logo-emblem .ring{ animation:none; }
+}
+
+.social-links {
+  display: flex;
+  gap: 12px;
+  margin: 18px 0;
+}
+
+.social-links a {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(214, 169, 58, 0.3);
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--gold2);
+
+  font-size: 16px;
+
+  transition:
+    transform .3s ease,
+    background .3s ease,
+    border-color .3s ease,
+    box-shadow .3s ease;
+}
+
+.social-links a:hover {
+  transform: translateY(-4px);
+  background: rgba(214, 169, 58, 0.12);
+  border-color: var(--gold);
+  box-shadow: 0 8px 30px rgba(214, 169, 58, 0.18);
+  color: white;
+}
+
+.handle {
+  font-size: 11px;
+  opacity: .55;
+}
+.brand{display:flex;gap:10px;align-items:center}
+.brand b{font:500 31px var(--serif);color:var(--gold2);display:block;line-height:.75}
+.brand small{font-size:7px;letter-spacing:2px;color:#ddd}
+.brand i{color:var(--gold);font-family:var(--serif)}
+.brand-mark{color:var(--gold2);font-size:25px}
+
+nav{display:flex;gap:30px;font-size:12px}
+nav a{opacity:.75;transition:.2s}
+nav a:hover{opacity:1;color:var(--gold2)}
+.gold-btn,.outline-btn{border:1px solid var(--gold);background:rgba(214,169,58,.06);color:#fff;padding:12px 22px;border-radius:30px;font:500 11px var(--sans);letter-spacing:.3px;cursor:pointer;transition:.3s}.gold-btn:hover,.outline-btn:hover{background:var(--gold);color:#1b0b10;box-shadow:0 0 35px rgba(214,169,58,.22)}.gold-btn span,.outline-btn span{margin-left:15px}.menu{display:none;background:none;border:0;color:white;font-size:20px}
+.hero{height:92vh;min-height:680px;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
+.hero-panel{position:relative;display:flex;align-items:center;justify-content:center;text-align:center;background-size:cover;background-position:center}
+.nails{background:linear-gradient(90deg,rgba(29,3,27,.72),rgba(67,7,65,.38)),radial-gradient(circle at 45% 50%,#74166b,transparent 50%)}
+.tattoos{background:linear-gradient(90deg,rgba(0,0,0,.4),rgba(0,0,0,.8)),radial-gradient(circle at 55% 50%,#54463d,transparent 45%),#080706}
+.hero-panel:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 60%,rgba(0,0,0,.55));pointer-events:none}.hero-copy{position:relative;z-index:2;margin-top:70px}.eyebrow{font-size:10px;letter-spacing:4px;color:var(--gold2);margin:0 0 18px}.hero h1{font:500 clamp(58px,7vw,105px)/.8 var(--serif);margin:0 0 25px;letter-spacing:-3px}.hero h1 em,h2 em{font-weight:400}.hero-copy>p:not(.eyebrow){font-size:13px;opacity:.75;margin:0 0 30px}.hero-divider{position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(transparent,var(--gold),transparent);z-index:3}.hero-divider span{position:absolute;top:48%;left:50%;transform:translate(-50%,-50%);font-size:27px;color:var(--gold2);background:#21051f;padding:10px;border-radius:50%}
+.mode-switch{position:absolute;z-index:5;top:calc(92vh - 35px);left:50%;transform:translateX(-50%);padding:5px;border-radius:35px;display:flex;align-items:center;gap:5px}.mode-switch button,.gallery-tabs button{border:0;background:transparent;color:#ddd;padding:10px 20px;border-radius:25px;cursor:pointer;font:11px var(--sans)}.mode-switch button.active,.gallery-tabs button.active{background:rgba(255,255,255,.11);color:var(--gold2)}.mode-switch>span{color:var(--gold);font-size:10px}
+.section{padding:125px 7%;max-width:1450px;margin:auto}.section-heading{text-align:center;margin-bottom:55px}.section-heading.left{text-align:left}.section-heading h2,.about h2,.booking h2{font:500 clamp(43px,5vw,70px)/.9 var(--serif);margin:0 0 16px}.section-heading>p:last-child{opacity:.55;font-size:13px}
+.service-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.service-card{border-radius:28px;padding:38px;position:relative;overflow:hidden}.service-card:before{content:"";position:absolute;inset:-50%;background:radial-gradient(circle,#8c237f22,transparent 45%);pointer-events:none}.anubis-card:before{background:radial-gradient(circle,#e1ab2b12,transparent 45%)}.card-icon{font-size:30px;color:var(--gold2);margin-bottom:25px}.service-card h3{font:500 45px var(--serif);margin:0 0 25px}.service{display:flex;justify-content:space-between;border-top:1px solid rgba(255,255,255,.1);padding:16px 0;font-size:12px}.service b{font-weight:400;color:#bcb4ad;font-size:10px}.text-link{display:inline-block;margin-top:22px;font-size:11px;color:var(--gold2)}.text-link span{margin-left:12px}
+.gallery-section{padding-top:40px}.gallery-tabs{display:flex;gap:5px;border:1px solid rgba(255,255,255,.12);border-radius:30px;width:max-content;padding:4px;margin-bottom:25px}.gallery-grid{display:grid;grid-template-columns:1.25fr .8fr .8fr;grid-template-rows:250px 250px;gap:12px}.gallery-item{border-radius:20px;overflow:hidden;position:relative;display:flex;align-items:end;padding:22px;background-size:cover;isolation:isolate}.gallery-item:before{content:"";position:absolute;inset:0;background:linear-gradient(transparent 30%,rgba(0,0,0,.75));z-index:-1}.gallery-item span{font:20px var(--serif);letter-spacing:.3px}
+.g1 {
+  grid-row: span 2;
+  background:
+    linear-gradient(to bottom, transparent 30%, rgba(0,0,0,.75)),
+    url("classic\ elegance.jpeg") center/cover;
+}
+
+.g2 {
+  background:
+    linear-gradient(to bottom, transparent 30%, rgba(0,0,0,.75)),
+    url("soft\ luxary.jpeg") center/cover;
+}
+
+.g3 {
+  background:
+    linear-gradient(to bottom, transparent 30%, rgba(0,0,0,.75)),
+    url("black\ and\ bold.jpeg") center/cover;
+}
+
+.g4 {
+  background:
+    linear-gradient(to bottom, transparent 30%, rgba(0,0,0,.75)),
+    url("signature.jpeg") center/cover;
+
+}.about{display:grid;grid-template-columns:.9fr 1.1fr;gap:8%;align-items:center}.about-visual{height:520px;border-radius:30px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font:45px var(--serif);color:var(--gold2);position:relative;overflow:hidden}.about-visual:before{content:"";position:absolute;width:350px;height:350px;border-radius:50%;background:radial-gradient(circle,#e1ab2b20,transparent 65%)}.ankh{font-size:150px;font-family:var(--serif);line-height:1}.about-visual small{font:8px var(--sans);letter-spacing:5px}.about-copy p:not(.eyebrow):not(.quote){font-size:14px;line-height:1.9;opacity:.62;max-width:620px}.quote{font:italic 27px var(--serif);color:var(--gold2);margin:35px 0}
+.booking{max-width:1200px;margin:0 auto 120px;border-radius:32px;padding:55px;display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;align-items:center}.booking-form{display:grid;grid-template-columns:1fr 1fr;gap:12px}.booking-form select,.booking-form input{width:100%;padding:16px 17px;background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.14);border-radius:10px;color:#eee;font:11px var(--sans);outline:none}.booking-form select{grid-column:span 2}.booking-form button{grid-column:span 2}
+footer{padding:65px 7%;border-top:1px solid rgba(255,255,255,.1);display:grid;grid-template-columns:2fr 1fr 1.4fr 1fr;gap:30px;position:relative}.footer-brand h3{font:500 48px var(--serif);color:var(--gold2);margin:0}.footer-brand small{letter-spacing:3px;font-size:7px}.copyright{font-size:9px;opacity:.4;align-self:end;text-align:right}
+body.anubis-mode .gigi-card,body.anubis-mode .nails{opacity:.72}body.anubis-mode .hero-divider span{background:#080706}.anubis-mode .mode-switch{border-color:#8b6929}.anubis-mode .gold-btn,.anubis-mode .outline-btn{border-color:var(--anubis)}body.anubis-mode .eyebrow,body.anubis-mode .text-link{color:var(--anubis)}
+@media(max-width:800px){
+
+  .site-header{
+    top:10px;
+    left:3%;
+    right:3%;
+  }
+
+  nav,
+  .site-header>.gold-btn{
+    display:none;
+  }
+
+  .menu{
+    display:block;
+  }
+
+  /* =========================
+     MOBILE HERO
+     ========================= */
+
+  .hero{
+    height:auto;
+    min-height:100vh;
+    grid-template-columns:1fr;
+    position:relative;
+  }
+
+  .hero-panel{
+    min-height:62vh;
+  }
+
+  .hero-divider{
+    display:none;
+  }
+
+  .hero h1{
+    font-size:65px;
+  }
+
+
+  /* =========================
+     MODE SWITCH / DIVIDER
+     ========================= */
+
+  .mode-switch{
+    top:62vh;
+    bottom:auto;
+    left:50%;
+    transform:translate(-50%, -50%);
+
+    width:max-content;
+    max-width:94%;
+
+    padding:5px;
+
+    z-index:10;
+
+    border-radius:35px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .mode-switch button{
+    padding:10px 14px;
+    font-size:10px;
+  }
+
+  .mode-switch>span{
+    font-size:9px;
+    padding:0 2px;
+  }
+
+
+  /* =========================
+     REST OF MOBILE LAYOUT
+     ========================= */
+
+  .service-grid,
+  .about,
+  .booking,
+  footer{
+    grid-template-columns:1fr;
+  }
+
+  .gallery-grid{
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:220px 220px;
+  }
+
+  .g1{
+    grid-row:auto;
+    grid-column:span 2;
+  }
+
+  .section{
+    padding:90px 5%;
+  }
+
+  .booking{
+    margin:0 5% 80px;
+    padding:30px;
+  }
+
+  .booking-form{
+    grid-template-columns:1fr;
+  }
+
+  .booking-form select,
+  .booking-form button{
+    grid-column:span 1;
+  }
+
+  .about-visual{
+    height:350px;
+  }
+
+  .copyright{
+    text-align:left;
+    margin-top:20px;
+  }
+
+}
