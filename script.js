@@ -148,3 +148,29 @@ document.querySelector('.menu').addEventListener('click', () => {
   nav.classList.add('glass');
 
 });
+document.querySelectorAll('[data-wa]').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var name = document.getElementById('clientName').value.trim();
+    var dateValue = document.getElementById('appointmentDate').value;
+
+    if (!name || !dateValue) {
+      alert('Please enter your name and choose a date first.');
+      return;
+    }
+
+    // Turn 2026-10-15 into "15 October 2026"
+    var date = new Date(dateValue + 'T00:00:00').toLocaleDateString('en-GB', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric'
+    });
+
+    var message = "Hi, I'm " + name + ". I'd like to make a " +
+                  btn.dataset.service + " appointment on " + date + ".";
+
+    var url = 'https://wa.me/' + btn.dataset.wa +
+              '?text=' + encodeURIComponent(message);
+
+    window.open(url, '_blank', 'noopener');
+  });
+});
